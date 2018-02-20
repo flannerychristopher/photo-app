@@ -11,6 +11,8 @@ gem 'rails', '~> 5.1.5'
 gem 'devise'
 gem 'twitter-bootstrap-rails'
 gem 'devise-bootstrap-views'
+gem 'therubyracer'
+gem 'less-rails'
 gem 'jquery-rails'
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
