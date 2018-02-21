@@ -1,5 +1,5 @@
 <script language='Javascript'>
-  Strip.setPublishibaleKey("<%= ENV['STRIPE_TEST_PUBLISHABLE_KEY'] %>");
+  Stripe.setPublishableKey("<%= ENV['STRIPE_TEST_PUBLISHABLE_KEY'] %>");
 </script>
 
 <%= bootstrap_devise_error_messages! %>
@@ -31,16 +31,16 @@
         <%= fields_for(:payment) do |p| %>
 
           <div class='form-group col-md-4 no-left-padding'>
-            <%= p.label :card_number, "Number", data: { stripe: 'label' } %>
-            <%= p.text_field  :card_number, 
+            <%= p.label :number, "Number", data: { stripe: 'label' } %>
+            <%= p.text_field  :number, 
                               class: 'form-control', 
                               required: true,
                               data: { stripe: 'number' } %>
           </div>
 
           <div class='form-group col-md-2 no-left-padding'>
-            <%= p.label :card_vv, "CVV", data: { stripe: 'label' } %>
-            <%= p.text_field  :card_cvv, 
+            <%= p.label :cvc, "CVC", data: { stripe: 'label' } %>
+            <%= p.text_field  :cvc, 
                               class: 'form-control', 
                               required: true,
                               data: { stripe: 'cvc' } %>
@@ -51,7 +51,7 @@
             <%= p.label :card_expires, 'Expires', data: { stripe: 'label' } %>
           </div>
           <div class='col-md-4 no-left-padding'>
-            <%= p.select  :card_expires_month, 
+            <%= p.select  :exp_month, 
                           options_for_select(Payment.month_options),
                           { includes_blank: 'Month' },
                           'data-stripe' => 'exp-month',
@@ -59,7 +59,7 @@
                           require: true %>
           </div>
           <div class='col-md-4 no-left-padding'>
-            <%= p.select  :card_expires_year, 
+            <%= p.select  :exp_year, 
                           options_for_select(Payment.year_options),
                           { includes_blank: 'Year' },
                           data: { stripe: 'exp-year' },
