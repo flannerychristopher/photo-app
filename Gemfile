@@ -15,6 +15,10 @@ gem 'therubyracer'
 gem 'less-rails'
 gem 'jquery-rails'
 gem 'stripe'
+# images
+gem 'carrierwave'
+gem 'mini_magick'
+gem 'fog'
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets
